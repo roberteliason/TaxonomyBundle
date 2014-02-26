@@ -1,0 +1,9 @@
+{% extends "TaxonomyBundle::layout.html.twig" %}
+
+{% block page_title %}Content associated with {{ term.name }}{% endblock %}
+
+{% block content %}
+    {% for entity in entities %}
+        {{ entity.name }}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,58 @@
+SymfonyContrib\Bundle\TaxonomyBundle\Entity\Vocabulary:
+    type: entity
+    table: taxonomy_vocabulary
+    repositoryClass: SymfonyContrib\Bundle\TaxonomyBundle\Entity\Repository\VocabularyRepository
+    uniqueConstraints:
+        taxonomy_vocabulary_name:
+            columns:
+                - name
+    indexes:
+        taxonomy_vocabulary_list:
+            columns:
+                - weight
+                - name
+    oneToMany:
+        terms:
+            targetEntity: Term
+            mappedBy: vocabulary
+            fetch: EXTRA_LAZY
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        label:
+            column: human_label
+            type: string
+            length: 255
+            options:
+                comment: Human readable name.
+        name:
+            type: string
+            length: 255
+            unique: true
+            options:
+                comment: Character limited machine name.
+        desc:
+            column: description
+            type: string
+            length: 255
+            options:
+                comment: Description for use in management.
+        weight:
+            type: integer
+            options:
+                comment: Weight in relation to other vocabularies.
+        created:
+            type: datetime
+            options:
+                comment: Date and time of creation.
+        updated:
+            type: datetime
+            nullable: true
+            options:
+                comment: Date and time this row was updated.
+    lifecycleCallbacks:
+        preUpdate:
+            - preUpdate

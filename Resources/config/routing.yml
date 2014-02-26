@@ -1,0 +1,11 @@
+taxonomy_term_ajax_search:
+    path:  /ajax/taxonomy/{vocabName}/{term}
+    defaults:
+        _controller: TaxonomyBundle:Ajax:termSearch
+        vocabName: null
+        term: null
+
+taxonomy_term_content_list:
+    path:  /taxonomy/{vocab}/{term}
+    defaults:
+        _controller: TaxonomyBundle:Public:termContentList

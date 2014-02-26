@@ -1,0 +1,41 @@
+# Vocabularies
+taxonomy_admin_vocab_list:
+    path:  /taxonomy
+    defaults:
+        _controller: TaxonomyBundle:AdminVocab:list
+
+taxonomy_admin_vocab_add:
+    path:  /taxonomy/add
+    defaults:
+        _controller: TaxonomyBundle:AdminVocab:form
+
+taxonomy_admin_vocab_edit:
+    path:  /taxonomy/{vocabName}/edit
+    defaults:
+        _controller: TaxonomyBundle:AdminVocab:form
+
+taxonomy_admin_vocab_delete:
+    path:  /taxonomy/{vocabName}/delete
+    defaults:
+        _controller: TaxonomyBundle:AdminVocab:delete
+
+# Terms
+taxonomy_admin_term_list:
+    path: /taxonomy/{vocabName}
+    defaults:
+        _controller: TaxonomyBundle:AdminTerm:list
+
+taxonomy_admin_term_add:
+    path:  /taxonomy/{vocabName}/add
+    defaults:
+        _controller: TaxonomyBundle:AdminTerm:form
+
+taxonomy_admin_term_edit:
+    path:  /taxonomy/{vocabName}/{termId}/edit
+    defaults:
+        _controller: TaxonomyBundle:AdminTerm:form
+
+taxonomy_admin_term_delete:
+    path:  /taxonomy/{vocabName}/{termId}/delete
+    defaults:
+        _controller: TaxonomyBundle:AdminTerm:delete

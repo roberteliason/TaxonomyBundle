@@ -1,0 +1,106 @@
+SymfonyContrib\Bundle\TaxonomyBundle\Entity\Term:
+    type: entity
+    table: taxonomy_term
+    gedmo:
+        tree:
+            type: materializedPath
+    repositoryClass: SymfonyContrib\Bundle\TaxonomyBundle\Entity\Repository\TermRepository
+    manyToOne:
+        vocabulary:
+            targetEntity: Vocabulary
+            inversedBy: terms
+            fetch: EAGER
+            joinColumn:
+                name: vid
+                referencedColumnName: id
+                onDelete: CASCADE
+        parent:
+            targetEntity: SymfonyContrib\Bundle\TaxonomyBundle\Entity\Term
+            inversedBy: children
+            fetch: EAGER
+            joinColumn:
+                name: pid
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
+            gedmo:
+                - treeParent
+    oneToMany:
+        map:
+            targetEntity: TermMap
+            mappedBy: term
+            fetch: EXTRA_LAZY
+        children:
+            targetEntity: Term
+            mappedBy: parent
+            fetch: EXTRA_LAZY
+    uniqueConstraints:
+        taxonomy_term_unique_in_vocab:
+            columns:
+                - vid
+                - name
+    indexes:
+        taxonomy_term_name:
+            columns:
+                - name
+        taxonomy_term_list:
+            columns:
+                - vid
+                - weight
+                - name
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            gedmo:
+                - treePathSource
+            options:
+                comment: Name of the term.
+        desc:
+            column: description
+            type: string
+            length: 255
+            options:
+                comment: Short description of the term.
+        weight:
+            type: integer
+            options:
+                comment: Weight of term in relation to other terms in the same vocabulary.
+        path:
+            column: mpath
+            type: string
+            length: 10000
+            nullable: true
+            gedmo:
+                treePath:
+                    separator: "/"
+                    appendId: false
+                    startsWithSeparator: false
+                    endsWithSeparator: false
+            options:
+                comment: Materilized path for ordering.
+        level:
+            column: lvl
+            type: integer
+            gedmo:
+                - treeLevel
+            options:
+                comment: Nesting level.
+        created:
+            type: datetime
+            options:
+                comment: Date and time of creation.
+        updated:
+            type: datetime
+            nullable: true
+            options:
+                comment: Date and time this row was updated.
+    lifecycleCallbacks:
+        preUpdate:
+            - preUpdate
+
