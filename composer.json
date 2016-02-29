@@ -1,5 +1,5 @@
 {
-    "name": "symfonycontrib/taxonomy-bundle",
+    "name": "roberteliason/taxonomy-bundle",
     "type": "symfony-bundle",
     "description": "Symfony2 taxonomy management for content organization. (tags, categories, groups, types, etc.)",
     "keywords": ["Symfony", "bundle", "taxonomy", "tags", "categories"],
