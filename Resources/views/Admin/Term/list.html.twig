@@ -62,6 +62,9 @@
         {{ form_end(form) }}
     {% endif %}
 
+{% endblock %}
+
+{% block ext_javascripts %}
     <script type='text/javascript' src="{{ asset('bundles/taxonomy/js/tabledrag-settings.js') }}"></script>
     <script type='text/javascript' src="{{ asset('bundles/taxonomy/js/tabledrag.js') }}"></script>
     <script type='text/javascript' src="{{ asset('bundles/taxonomy/js/term-tags.js') }}"></script>
