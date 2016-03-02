@@ -59,7 +59,8 @@
 
     {% if terms %}
         {{ form_widget(form.save) }}
-        {{ form_widget(form.reset) }}
         {{ form_end(form) }}
     {% endif %}
+
+    <script src="components/tabledrag/js/tabledrag.js"></script>
 {% endblock %}

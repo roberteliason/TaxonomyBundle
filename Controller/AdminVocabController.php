@@ -47,7 +47,7 @@ class AdminVocabController extends Controller
         }
 
         $form = $this->createForm('taxonomy_vocabulary_form', $vocabulary, [
-            'cancel_url' => $this->generateUrl('taxonomy_admin_vocab_list'),
+            // 'cancel_url' => $this->generateUrl('taxonomy_admin_vocab_list'),
         ]);
         $form->handleRequest($request);
 

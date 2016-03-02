@@ -32,10 +32,10 @@ class TermForm extends AbstractType
                 'attr' => [
                     'class' => 'btn-success',
                 ]
-            ])
-            ->add('cancel', 'button', [
-                'url' => $options['cancel_url'],
             ]);
+//            ->add('cancel', 'button', [
+//                'url' => $options['cancel_url'],
+//            ]);
     }
 
     /**
@@ -46,7 +46,7 @@ class TermForm extends AbstractType
         $resolver->setDefaults([
             'data_class' => 'SymfonyContrib\\Bundle\\TaxonomyBundle\\Entity\\Term',
             'vocabulary' => null,
-            'cancel_url' => '/',
+            //'cancel_url' => '/',
         ]);
     }
 

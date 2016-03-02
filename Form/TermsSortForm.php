@@ -29,10 +29,10 @@ class TermsSortForm extends AbstractType
                 'attr' => [
                     'class' => 'btn-success',
                 ],
-            ])
-            ->add('reset', 'button', [
-                'url' => $options['cancel_url'],
             ]);
+//            ->add('reset', 'button', [
+//                'url' => $options['cancel_url'],
+//            ]);
     }
 
     /**
@@ -41,7 +41,7 @@ class TermsSortForm extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'cancel_url' => '/',
+            //'cancel_url' => '/',
             'vocabulary' => null,
         ]);
     }

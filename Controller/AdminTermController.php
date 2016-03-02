@@ -30,7 +30,7 @@ class AdminTermController extends Controller
         $uri = $request->getRequestUri();
         $options = [
             'vocabulary' => $vocabulary,
-            'cancel_url' => $uri,
+            //'cancel_url' => $uri,
         ];
         $form = $this->createForm('taxonomy_terms_sort_form', ['terms' => $terms], $options);
 

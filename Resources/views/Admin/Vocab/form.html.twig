@@ -3,10 +3,10 @@
 {% block page_title %}{{ vocabulary.label ? 'Edit' : 'Add' }} {{ vocabulary.label }} Vocabulary{% endblock %}
 
 {% block content %}
+    FORM
     {{ form_start(form) }}
     {{ form_row(form.label) }}
     {{ form_row(form.desc) }}
     {{ form_widget(form.save) }}
-    {{ form_widget(form.cancel) }}
     {{ form_end(form) }}
 {% endblock %}

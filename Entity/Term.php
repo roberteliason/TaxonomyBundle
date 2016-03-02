@@ -46,7 +46,7 @@ class Term
     /**
      * @var Vocabulary
      */
-    public $vocabulary;
+    protected $vocabulary;
 
     /**
      * @var \DateTime
