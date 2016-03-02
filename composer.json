@@ -40,7 +40,7 @@
     "installer-paths": {
       "web/components/{$name}/": [
         "type:component"
-      ],
+      ]
     }
   }
 }
