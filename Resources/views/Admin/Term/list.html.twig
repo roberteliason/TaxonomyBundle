@@ -1,5 +1,10 @@
 {% extends "TaxonomyBundle::layout.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/taxonomy/css/tabledrag.css') }}">
+{% endblock %}
+
 {% block page_title %}Terms in {{ vocabulary.label }}{% endblock %}
 
 {% block content %}
@@ -64,8 +69,10 @@
 
 {% endblock %}
 
-{% block ext_javascripts %}
-    <script type='text/javascript' src="{{ asset('bundles/taxonomy/js/tabledrag-settings.js') }}"></script>
-    <script type='text/javascript' src="{{ asset('bundles/taxonomy/js/tabledrag.js') }}"></script>
-    <script type='text/javascript' src="{{ asset('bundles/taxonomy/js/term-tags.js') }}"></script>
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/taxonomy/js/tabledrag-settings.js') }}"></script>
+    <script src="{{ asset('bundles/taxonomy/js/tabledrag.js') }}"></script>
+    <script src="{{ asset('bundles/taxonomy/js/term-tags.js') }}"></script>
 {% endblock %}
